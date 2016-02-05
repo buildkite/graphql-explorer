@@ -1,0 +1,110 @@
+.Login__Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.Login {
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+  z-index: 100;
+  width: 500px;
+  font-family: system, -apple-system, 'San Francisco', '.SFNSDisplay-Regular', 'Segoe UI', Segoe, 'Segoe WP', 'Helvetica Neue', helvetica, 'Lucida Grande', arial, sans-serif;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.Login h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+.Login span.beta {
+  color: #E535AB;
+}
+
+.Login__Header {
+  border-bottom: 1px solid #ddd;
+  padding: 40px 40px 30px;
+}
+
+.Login__Body {
+  padding: 10px 40px 30px;
+}
+
+.Login__Intro {
+  margin-bottom: 5px;
+  color: #383838;
+}
+
+.Login input[type=text] {
+  width: 90%;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+
+.Login__Button {
+  display: block;
+  box-shadow: none;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  border-radius: 3px;
+  width: 95%;
+}
+
+.Login__Logos {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.Login__Logos img {
+  height: 40px;
+  margin-left: 20px;
+}
+
+.Login__Logos img:first-child {
+  margin-left: 0px;
+}
+
+.Login__Extra {
+  color: #717171;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  color: #9a9a9a;
+}
+
+.Login__Extra a {
+  color: #0088FF;
+  text-decoration: none;
+}
+
+.Login__Extra a:hover {
+  text-decoration: underline;
+}
+
+.LoginBackground {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 10;
+  background: rgb(246, 247, 248);
+}
