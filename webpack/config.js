@@ -1,5 +1,6 @@
-var webpack = require("webpack"),
-  HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require("path");
+var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 if(!process.env.NODE_ENV) {
   throw "no NODE_ENV set";
@@ -18,7 +19,7 @@ module.exports = {
   entry: '../app.js',
 
   output: {
-    path: 'dist',
+    path: path.join(__dirname, '..', 'dist'),
     publicPath: '//buildkiteassets.com/graphql-explorer/',
     filename: outputFilename
   },
