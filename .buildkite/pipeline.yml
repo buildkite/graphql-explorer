@@ -2,3 +2,11 @@ steps:
   - name: ":webpack:"
     command: ".buildkite/build.sh"
     artifact_paths: "dist/**/*"
+
+  - wait
+
+  - name: ":shipit:"
+    command: ".buildkite/deploy.sh"
+    branches: "master"
+    agents:
+      queue: "deploy"
