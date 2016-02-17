@@ -20,7 +20,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, '..', 'dist'),
-    publicPath: '//buildkiteassets.com/graphql-explorer/',
+    publicPath: process.env.WEBPACK_HOST,
     filename: outputFilename
   },
 
