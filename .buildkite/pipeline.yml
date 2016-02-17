@@ -1,5 +1,3 @@
 steps:
   - name: ":webpack:"
     command: ".buildkite/build.sh"
-    env:
-      NODE_ENV: "production"
