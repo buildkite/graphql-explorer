@@ -1,6 +1,6 @@
 # Buildkite GraphQL Explorer
 
-The source code to https://graphql.buildkite.com
+The source code to https://graphql.buildkite.com/explorer
 
 This project uses the excellent GraphiQL IDE https://github.com/graphql/graphiql
 
