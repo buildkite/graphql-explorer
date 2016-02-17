@@ -19,6 +19,7 @@ module.exports = {
 
   output: {
     path: 'dist',
+    publicPath: '//buildkiteassets.com/graphql-explorer/',
     filename: outputFilename
   },
 
