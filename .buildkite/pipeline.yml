@@ -1,3 +1,4 @@
 steps:
   - name: ":webpack:"
     command: ".buildkite/build.sh"
+    artifact_paths: "dist/**/*"
