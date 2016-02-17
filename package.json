@@ -24,6 +24,7 @@
     "babel-preset-react-hmre": "^1.1.0",
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.8.2",
     "image-webpack-loader": "^1.6.3",
     "postcss": "^5.0.14",
     "postcss-cssnext": "^2.4.0",

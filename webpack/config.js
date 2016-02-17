@@ -1,18 +1,24 @@
-var webpack = require("webpack");
+var webpack = require("webpack"),
+  HtmlWebpackPlugin = require('html-webpack-plugin');
+
+if(!process.env.NODE_ENV) {
+  throw "no NODE_ENV set";
+}
 
 var outputFilename;
 if(process.env.NODE_ENV == "production") {
-  outputFilename = "bundle-[hash].js"
+  outputFilename = "bundle-[hash].js";
 } else {
-  outputFilename = "bundle.js"
+  outputFilename = "bundle.js";
 }
 
 module.exports = {
   context: __dirname,
 
-  entry: './app.js',
+  entry: '../app.js',
 
   output: {
+    path: 'dist',
     filename: outputFilename
   },
 
@@ -37,10 +43,16 @@ module.exports = {
     ]
   },
 
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: '../index.html'
+    })
+  ],
+
   postcss: function (webpack) {
     return [
       require("postcss-import")({ addDependencyTo: webpack }),
       require("postcss-cssnext")()
     ]
   }
-}
+};
