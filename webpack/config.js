@@ -48,6 +48,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: '../index.html'
+    }),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
   ],
 

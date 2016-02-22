@@ -11,10 +11,11 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "style-loader": "^0.13.0",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "whatwg-fetch": "^0.11.0"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.js --progress --colors --cache --inline --hot"
+    "start": "webpack-dev-server --config webpack/config.js --progress --colors --cache --inline --hot"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
@@ -24,8 +25,10 @@
     "babel-preset-react-hmre": "^1.1.0",
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
+    "exports-loader": "^0.6.3",
     "html-webpack-plugin": "^2.8.2",
     "image-webpack-loader": "^1.6.3",
+    "imports-loader": "^0.6.5",
     "postcss": "^5.0.14",
     "postcss-cssnext": "^2.4.0",
     "postcss-import": "^8.0.2",
