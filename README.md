@@ -4,6 +4,15 @@ The source code to https://graphql.buildkite.com/explorer
 
 This project uses the excellent GraphiQL IDE https://github.com/graphql/graphiql
 
+## Development
+
+```bash
+git clone git@github.com:buildkite/graphql-explorer.git
+cd graphql-explorer
+npm install
+NODE_ENV=development npm start
+```
+
 ## Contributing
 
 1. Fork it
