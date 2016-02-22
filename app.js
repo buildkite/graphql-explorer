@@ -59,14 +59,55 @@ class GraphQLViewer extends React.Component {
 #
 # Press the run button above, or Cmd-Enter to execute the query, and the result
 # will appear in the pane to the right.
+#
+# Here is a simple GraphQL query that will request your name and avatar URL
 
-query AwesomeQuery {
+query SimpleQuery {
   viewer {
     user {
       name
+      avatar {
+        url
+      }
     }
   }
-}`;
+}
+
+# Here is a slightly more complex GraphQL query that will request not only your
+# name, but the latest 10 builds for each of the build pipelines you can access.
+# To run this query, you'll first need to remove the one above, then uncomment this
+# one.
+#
+# query ComplexQuery {
+#   viewer {
+#     user {
+#       name
+#     }
+#     organizations {
+#       edges {
+#         node {
+#           name
+#           pipelines {
+#             edges {
+#               node {
+#                 name
+#                 repository
+#                 builds(first: 10) {
+#                   edges {
+#                     node {
+#                       number
+#                       message
+#                     }
+#                   }
+#                 }
+#               }
+#             }
+#           }
+#         }
+#       }
+#     }
+#   }
+# }`;
 
   render() {
     // Fixes a bug in the latest version of GraphiQL where the defaultQuery
