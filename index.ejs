@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>window._graphql = { url: "https://graphql.buildkite.com/v1" }</script>
+    <script>window._graphql = <%= JSON.stringify(htmlWebpackPlugin.options.graphql) %>;</script>
     <title>Buildkite GraphQL Explorer Beta</title>
     <style>
       html, body {

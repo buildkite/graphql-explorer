@@ -47,7 +47,8 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: '../index.html'
+      template: '../index.ejs',
+      graphql: { url: process.env["GRAPHQL_ENDPOINT"]  || "https://graphql.buildkite.com/v1" }
     }),
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
