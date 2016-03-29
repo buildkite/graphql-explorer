@@ -49,7 +49,7 @@ class GraphQLViewer extends React.Component {
   static defaultQuery = `# Welcome to the Buildkite GraphQL Explorer
 #
 # This is an in-browser IDE for writing, validating, and
-# testing GraphQL queries.
+# testing GraphQL queries on https://graphql.buildkite.com/v1
 #
 # Type queries into this side of the screen, and you will
 # see intelligent typeaheads aware of the current GraphQL type schema and
