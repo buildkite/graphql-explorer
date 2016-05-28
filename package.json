@@ -6,13 +6,13 @@
     "url": "https://github.com/buildkite/graphql.git"
   },
   "dependencies": {
-    "graphiql": "^0.5.0",
-    "graphql": "^0.4.16",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "graphiql": "^0.7.1",
+    "graphql": "^0.5.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "whatwg-fetch": "^0.11.0"
+    "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack/config.js --progress --colors --cache --inline --hot"
@@ -32,7 +32,7 @@
     "postcss": "^5.0.14",
     "postcss-cssnext": "^2.4.0",
     "postcss-import": "^8.0.2",
-    "postcss-loader": "^0.8.0",
+    "postcss-loader": "^0.9.1",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   }
