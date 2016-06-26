@@ -6,7 +6,7 @@ require("graphiql/graphiql.css");
 require("./css/login.css");
 
 class Login extends React.Component {
-  state = { token: null };
+  state = { token: "" };
 
   render() {
     return (
