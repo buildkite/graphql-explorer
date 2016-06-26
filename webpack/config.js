@@ -28,7 +28,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/i,
-        loader: "style-loader!css-loader!postcss-loader"
+        loader: "style-loader!css-loader"
       },
       {
         test: /\.js$/i,
@@ -36,11 +36,8 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|svg|jpg|gif)$/i,
-        loaders: [
-          'url-loader?limit=8192',
-          'image-webpack?optimizationLevel=7&interlaced=false'
-        ]
+        test: /\.svg$/i,
+        loader: 'url-loader'
       }
     ]
   },
@@ -53,12 +50,5 @@ module.exports = {
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
-  ],
-
-  postcss: function (webpack) {
-    return [
-      require("postcss-import")({ addDependencyTo: webpack }),
-      require("postcss-cssnext")()
-    ]
-  }
+  ]
 };
