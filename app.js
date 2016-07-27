@@ -46,6 +46,8 @@ class Login extends React.Component {
 }
 
 class GraphQLViewer extends React.Component {
+  state = { performance: null };
+
   static defaultQuery = `# Welcome to the Buildkite GraphQL Explorer
 #
 # This is an in-browser IDE for writing, validating, and
@@ -116,6 +118,11 @@ query SimpleQuery {
       window.localStorage.setItem("graphiql:query", GraphQLViewer.defaultQuery);
     }
 
+    let footer = null;
+    if(this.state.performance) {
+      footer = <GraphiQL.Footer><pre style={{paddingLeft: "10px", fontSize: "12px"}}>{this.state.performance.split("; ").join("\n")}</pre></GraphiQL.Footer>
+    }
+
     return (
       <GraphiQL fetcher={this._fetcher.bind(this)} defaultQuery={GraphQLViewer.defaultQuery}>
         <GraphiQL.Logo>
@@ -123,6 +130,7 @@ query SimpleQuery {
             <img src={require('./images/logo.svg')} style={{height: "22px", verticalAlign: "middle", marginRight: "6px"}} /> Buildkite GraphQL Explorer
           </div>
         </GraphiQL.Logo>
+        {footer}
       </GraphiQL>
     );
   }
@@ -132,7 +140,12 @@ query SimpleQuery {
       method: 'post',
       body: JSON.stringify(params),
       headers: { 'Authorization': this.props.authorization }
-    }).then(response => response.json());
+    }).then(response => {
+      this.setState({ performance: response.headers.get('x-buildkite-performance') });
+      return response;
+    }).then(response => {
+      return response.json();
+    });
   }
 }
 
