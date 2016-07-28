@@ -1,6 +1,18 @@
 steps:
+  - name: ":docker: :package:"
+    plugins:
+      docker-compose:
+        build: graphql-explorer
+        image-repository: index.docker.io/buildkiteci/graphql-explorer
+    env:
+      NODE_ENV: development
+    agents:
+      queue: elastic-builders
+
+  - wait
+
   - name: ":webpack:"
-    command: ".buildkite/build.sh"
+    command: ".buildkite/webpack.sh"
     artifact_paths: "dist/**/*"
 
   - wait

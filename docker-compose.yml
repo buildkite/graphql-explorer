@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  graphql-explorer:
+    build: .
+    volumes:
+      - "./dist:/graphql-explorer/dist"
+    environment:
+      GRAPHQL_ENDPOINT:
+      NODE_ENV:
