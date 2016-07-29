@@ -14,6 +14,9 @@ steps:
   - name: ":webpack:"
     command: ".buildkite/webpack.sh"
     artifact_paths: "dist/**/*"
+    plugins:
+      docker-compose#e8ce6c1:
+        run: graphql-explorer
 
   - wait
 
