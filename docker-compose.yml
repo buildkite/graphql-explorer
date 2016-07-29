@@ -8,3 +8,5 @@ services:
     environment:
       GRAPHQL_ENDPOINT:
       NODE_ENV:
+      S3_BUCKET_PATH:
+      WEBPACK_HOST:
