@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import GraphiQL from 'graphiql';
+import queryString from 'query-string';
 
 require("graphiql/graphiql.css");
 require("./css/login.css");
@@ -130,6 +131,9 @@ query SimpleQuery {
             <img src={require('./images/logo.svg')} style={{height: "22px", verticalAlign: "middle", marginRight: "6px"}} /> Buildkite GraphQL Explorer
           </div>
         </GraphiQL.Logo>
+        <GraphiQL.Toolbar>
+          <GraphiQL.ToolbarButton onClick={this.props.onLogout} label="Logout" />
+        </GraphiQL.Toolbar>
         {footer}
       </GraphiQL>
     );
@@ -152,17 +156,50 @@ query SimpleQuery {
 class Page extends React.Component {
   state = { token: null };
 
-  render() {
-    if(!this.state.token) {
-      return <Login onLogin={this._onLogin.bind(this)} />
-    } else {
-      return <GraphQLViewer authorization={`Bearer ${this.state.token}`} />
-    }
+  componentWillMount() {
+    window.addEventListener('popstate', this.loadStateFromUrl);
+    this.loadStateFromUrl();
   }
 
-  _onLogin(token) {
-    this.setState({ token: token });
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.loadStateFromUrl); 
   }
+
+  loadStateFromUrl = () => {
+    const { token } = queryString.parse(window.location.search);
+
+    this.setState({ token });
+  };
+
+  render() {
+    if(!this.state.token) {
+      return <Login onLogin={this.handleLogin} />
+    }
+
+    return (
+      <GraphQLViewer
+        authorization={`Bearer ${this.state.token}`}
+        onLogout={this.handleLogout}
+      />
+    )
+  }
+
+  routeWithParameters = (parameters) => {
+    this.setState(
+      parameters,
+      () => {
+        window.history.pushState({}, null, `/?${queryString.stringify(parameters)}`)
+      }
+    );
+  };
+
+  handleLogin = (token) => {
+    this.routeWithParameters({ token });
+  };
+
+  handleLogout = () => {
+    this.routeWithParameters({ token: null });
+  };
 }
 
 ReactDOM.render(React.createElement(Page), document.getElementById('root'));
