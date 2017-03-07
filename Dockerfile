@@ -1,8 +1,8 @@
-FROM node:5
+FROM yarnpkg/node-yarn:latest
 
 WORKDIR /graphql-explorer
 
-ADD package.json npm-shrinkwrap.json /graphql-explorer/
-RUN npm install
+ADD package.json yarn.lock /graphql-explorer/
+RUN yarn --pure-lockfile
 
 ADD . /graphql-explorer/
