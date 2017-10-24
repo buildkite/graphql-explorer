@@ -23,7 +23,7 @@ class Login extends React.Component {
             <p className="Login__Intro">Enter a Buildkite API Token to get started</p>
             <p className="Login__Extra">The API token needs to have the <code>graphql</code> scope and can be created on your <a href="https://buildkite.com/user/api-access-tokens" target="_blank">API Access Tokens</a> page.</p>
             <form onSubmit={this._onSubmit.bind(this)}>
-              <input type="text" onChange={this._onInputChange.bind(this)} required="true" value={this.state.token} autoFocus="true" />
+              <input type="password" onChange={this._onInputChange.bind(this)} required="true" value={this.state.token} autoFocus="true" />
               <button className="Login__Button">Login</button>
             </form>
           </div>

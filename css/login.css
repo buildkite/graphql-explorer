@@ -43,7 +43,7 @@
   color: #383838;
 }
 
-.Login input[type=text] {
+.Login input[type=password] {
   width: 90%;
   padding: 10px;
   font-size: 20px;
