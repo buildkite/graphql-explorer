@@ -9,7 +9,7 @@ This project uses the excellent GraphiQL IDE https://github.com/graphql/graphiql
 ```bash
 git clone git@github.com:buildkite/graphql-explorer.git
 cd graphql-explorer
-npm install
+yarn install
 NODE_ENV=development npm start
 ```
 
