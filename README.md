@@ -10,7 +10,7 @@ This project uses the excellent GraphiQL IDE https://github.com/graphql/graphiql
 git clone git@github.com:buildkite/graphql-explorer.git
 cd graphql-explorer
 yarn install
-NODE_ENV=development npm start
+yarn run start
 ```
 
 ## Contributing
@@ -23,4 +23,4 @@ NODE_ENV=development npm start
 
 ## Copyright
 
-Copyright (c) 2016 Buildkite Pty Ltd. See LICENSE.txt for details.
+Copyright (c) 2017 Buildkite Pty Ltd. See LICENSE.txt for details.
