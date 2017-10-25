@@ -18,6 +18,7 @@ module.exports = merge(common, {
   ],
 
   output: {
-    filename: '[name]-[hash]-bundle.js'
+    filename: '[name]-[hash]-bundle.js',
+    publicPath: process.env.WEBPACK_HOST
   }
 })
