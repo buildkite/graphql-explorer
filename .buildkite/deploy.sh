@@ -8,8 +8,6 @@ buildkite-agent artifact download "dist/*" "."
 
 echo "--- :s3: Deploying assets to $S3_BUCKET_PATH"
 
-pushd dist
-s3cmd put --acl-public --recursive --verbose --force --no-preserve "." "$S3_BUCKET_PATH"
-popd
+aws s3 sync --region "us-east-1" --acl "public-read" "dist/" "$S3_BUCKET_PATH"
 
 echo "All done! 💪"
