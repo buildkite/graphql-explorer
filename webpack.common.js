@@ -2,27 +2,10 @@ var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-if(!process.env.NODE_ENV) {
-  throw "no NODE_ENV set";
-}
-
-var outputFilename;
-if(process.env.NODE_ENV == "production") {
-  outputFilename = "bundle-[hash].js";
-} else {
-  outputFilename = "bundle.js";
-}
-
 module.exports = {
   context: __dirname,
 
-  entry: '../app.js',
-
-  output: {
-    path: path.join(__dirname, '..', 'dist'),
-    publicPath: process.env.WEBPACK_HOST,
-    filename: outputFilename
-  },
+  entry: './app.js',
 
   module: {
     loaders: [
@@ -51,11 +34,15 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: '../index.ejs',
+      template: './index.ejs',
       graphql: { url: process.env["GRAPHQL_ENDPOINT"]  || "https://graphql.buildkite.com/v1" }
     }),
     new webpack.ProvidePlugin({
       'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
     })
-  ]
+  ],
+
+  output: {
+    path: path.resolve(__dirname, 'dist')
+  }
 };
