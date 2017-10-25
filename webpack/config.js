@@ -32,8 +32,15 @@ module.exports = {
       },
       {
         test: /\.js$/i,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      // We don't use flow, but graphiql renders a warning on webpack compile
+      // without this:
+      // https://github.com/graphql/graphiql/issues/617
+      {
+        test: /\.flow$/i,
+        loader: 'babel-loader'
       },
       {
         test: /\.svg$/i,
@@ -48,7 +55,7 @@ module.exports = {
       graphql: { url: process.env["GRAPHQL_ENDPOINT"]  || "https://graphql.buildkite.com/v1" }
     }),
     new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+      'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
     })
   ]
 };
