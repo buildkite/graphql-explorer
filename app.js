@@ -112,19 +112,13 @@ query SimpleQuery {
 # }`;
 
   render() {
-    // Fixes a bug in the latest version of GraphiQL where the defaultQuery
-    // property is no longer loaded correctly.
-    if(!window.localStorage.getItem("graphiql:query")) {
-      window.localStorage.setItem("graphiql:query", GraphQLViewer.defaultQuery);
-    }
-
     let footer = null;
     if(this.state.performance) {
       footer = <GraphiQL.Footer><pre style={{paddingLeft: "10px", fontSize: "12px"}}>{this.state.performance.split("; ").join("\n")}</pre></GraphiQL.Footer>
     }
 
     return (
-      <GraphiQL fetcher={this._fetcher.bind(this)} defaultQuery={GraphQLViewer.defaultQuery}>
+      <GraphiQL fetcher={this._fetcher} defaultQuery={GraphQLViewer.defaultQuery}>
         <GraphiQL.Logo>
           <div style={{verticalAlign: "middle"}}>
             <img src={require('./images/logo.svg')} style={{height: "22px", verticalAlign: "middle", marginRight: "6px"}} /> Buildkite GraphQL Explorer
@@ -135,7 +129,7 @@ query SimpleQuery {
     );
   }
 
-  _fetcher(params) {
+  _fetcher = (params) => {
     return fetch(window._graphql['url'], {
       method: 'post',
       body: JSON.stringify(params),
@@ -146,7 +140,7 @@ query SimpleQuery {
     }).then(response => {
       return response.json();
     });
-  }
+  };
 }
 
 class Page extends React.Component {
